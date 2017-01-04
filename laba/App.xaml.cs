@@ -1,4 +1,5 @@
-﻿using System;
+﻿using laba.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace laba
         {
             InitializeComponent();
 
-            MainPage = new laba.MainPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

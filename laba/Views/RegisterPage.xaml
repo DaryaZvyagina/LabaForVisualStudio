@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="laba.Views.RegisterPage"
+             Title="Регистрация "
+			 Padding="10,20,20,10">
+    <StackLayout>
+        <Label Text="Ваше настоящее имя"/>
+        <Entry Text="{Binding FullName}"/>
+        <Label Text="Имя пользователя"/>
+        <Entry Text="{Binding UserName}"/>
+        <Label Text="Пароль"/>
+        <Entry Text="{Binding Password}" IsPassword ="True" />
+        <Label Text="Подтверждение пароля"/>
+        <Entry Text="{Binding Password}" IsPassword ="True" />
+        <Button Text="Регистрация"
+				Command="{Binding RegisterCommand}"/>
+    </StackLayout>
+</ContentPage>

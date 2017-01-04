@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="laba.Views.ChatPage"
+             Title="Чат"
+			 Padding="10,20,20,10">
+    <StackLayout>
+        <ListView ItemsSource="{Binding Chat}"
+			  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Image}"
+						   HeightRequest="100"
+						   WidthRequest="100"/>
+                                <StackLayout>
+                                    <Label Text="{Binding FullName}"
+								   FontSize="Medium"/>
+                                    <Label Text="{Binding Message}"/>
+                                </StackLayout >
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout Orientation="Horizontal"
+				 VerticalOptions="End">
+            <Entry Text="{Binding Messege}"
+			WidthRequest="200" />
+            <Button Text="Отправить"
+            Command="{Binding SendCommand}"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
