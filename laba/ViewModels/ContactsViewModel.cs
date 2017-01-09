@@ -1,4 +1,5 @@
 ﻿using laba.Models;
+using laba.Response;
 using laba.Services;
 using laba.Views;
 using System;
@@ -24,7 +25,7 @@ namespace laba.ViewModels
 
             foreach (var contact in contacts)
             {
-                contact.Image = "http://192.168.43.207:9000/" + contact.Image;
+                contact.Image = "http://192.168.43.149:9000/" + contact.Image;
                 Contacts.Add(contact);
             }
 

@@ -1,4 +1,5 @@
 ﻿using laba.Models;
+using laba.Response;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -47,22 +48,38 @@ namespace laba.Services
             }
         }
 
+        //Contact Model
+       // public async Task<List<ContactModel>> LoadContactsAsync()
+       // {
+          //  try
+          //  {
+           //     var json = await _httpClient.GetStringAsync(new Uri($"{_baseUrl}/contacts.json"));
+           //     var jObj = JObject.Parse(json);
+           //     return JsonConvert.DeserializeObject<List<ContactModel>>(jObj["Contacts"].ToString());
+         //   }
+          //  catch (Exception e)
+         //   {
+          //      Debug.WriteLine(e.Message);
+          //      return new List<ContactModel>();
+          //  }
+       // }
 
-        public async Task<List<ContactModel>> LoadContactsAsync()
+        //ContactResponse
+        public async Task<ContactsResponse> LoadContactsAsync()
         {
             try
             {
                 var json = await _httpClient.GetStringAsync(new Uri($"{_baseUrl}/contacts.json"));
                 var jObj = JObject.Parse(json);
-                return JsonConvert.DeserializeObject<List<ContactModel>>(jObj["Contacts"].ToString());
+                return JsonConvert.DeserializeObject<ContactsResponse>(json);
             }
             catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
-                return new List<ContactModel>();
+                return new ContactsResponse();
             }
         }
-         
+
 
         public async Task<HttpStatusCode> RegisterAsync(string fullName, string userName, string password)
         {
