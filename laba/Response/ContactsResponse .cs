@@ -9,6 +9,6 @@ namespace laba.Response
 {
     public class ContactsResponse
     {
-        public List<ContactModel> Сontacts { get; set; }
+        public List<ContactModel> Contacts { get; set; }
     }
 }
