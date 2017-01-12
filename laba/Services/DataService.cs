@@ -116,7 +116,7 @@ namespace laba.Services
         {
             try
             {
-                var response = await _httpClient.PostAsync(new Uri($"{_baseUrl}/logout"), new StringContent(""));
+                var response = await _httpClient.PostAsync(new Uri($"{_baseUrl}/auth/logout"), new StringContent(""));
                 return response.StatusCode;
             }
             catch (Exception e)

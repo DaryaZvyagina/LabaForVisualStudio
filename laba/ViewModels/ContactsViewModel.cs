@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -59,11 +60,18 @@ namespace laba.ViewModels
 
         private async void Exit()
         {
-            var app = (App)Application.Current;
-            app.MainPage = new NavigationPage(new LoginPage());
+            var logout = await DataService.GetInstance().LogoutAsync();
+               
+            if(logout == HttpStatusCode.OK)
+            {
+                var app = (App)Application.Current;
+                app.MainPage = new NavigationPage(new LoginPage());
+            }
 
-            var logout = DataService.GetInstance().LogoutAsync();
-            await _page.Navigation.PopToRootAsync();
+            else
+            {
+                await _page.DisplayAlert("Ошибка", "Не удалось выйти", "Закрыть");
+            }
 
         }
 
